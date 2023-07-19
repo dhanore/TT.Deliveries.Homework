@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "TT.Deliveries.Scheduler.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7103"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 32965,
+      "useSSL": false
+    }
+  }
+}

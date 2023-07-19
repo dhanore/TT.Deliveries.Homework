@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  tt.deliveries.web.api:
+    image: ${DOCKER_REGISTRY-}ttdeliverieswebapi
+    build:
+      context: .
+      dockerfile: Web/TT.Deliveries.Web.Api/Dockerfile
+
+  Mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=mytempdb
+    restart: always
+    ports:
+      - 27018:27017
+  tt.deliveries.scheduler.functions:
+    image: ${DOCKER_REGISTRY-}ttdeliveriesschedulerfunctions
+    build:
+      context: .
+      dockerfile: Functions/TT.Deliveries.Scheduler.Functions/Dockerfile
+
